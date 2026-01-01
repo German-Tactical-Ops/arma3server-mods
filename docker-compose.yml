@@ -11,7 +11,9 @@ services:
     container_name: arma3-mods
     network_mode: host
     volumes:
-    - /home/arma3server/mods:/home/arma3server/.local/share/Steam/steamapps/workshop/content/107410
+    - /home/arma3server/mods:/home/arma3server/Steam/steamapps/workshop/content/107410/
+      # /home/arma3server/Steam/steamapps/workshop/content/107410/
+      # /home/arma3server/.local/share/Steam/steamapps/workshop/content/107410
     restart: unless-stopped
     secrets:
       - steam_user_password
