@@ -15,4 +15,8 @@ find ${HTML_DIR} -iname "*.html" -exec ${SCRIPTS}/create_sublist.sh {} "${MOD_LI
 
 # download mods
 bash ${SCRIPTS}/download_mods.sh "/home/steam/steamcmd/steamcmd.sh" "${MOD_LIST}" "${STEAMUSER}" "${STEAMPASS}"
+sleep 10
+bash ${SCRIPTS}/download_mods.sh "/home/steam/steamcmd/steamcmd.sh" "${MOD_LIST}" "${STEAMUSER}" "${STEAMPASS}"
+sleep 10
+bash ${SCRIPTS}/download_mods.sh "/home/steam/steamcmd/steamcmd.sh" "${MOD_LIST}" "${STEAMUSER}" "${STEAMPASS}"
 bash ${SCRIPTS}/fix_mods_lowercase.sh ${MOD_DIRECTORY}
