@@ -57,7 +57,7 @@ USER ${USERNAME}
 
 ARG SCRIPT="/etc/arma3/scripts"
 ARG HTML_DIR="/etc/arma3/html"
-ARG MOD_DIRECTORY="/home/arma3server/.local/share/Steam/steamapps/workshop/content/107410"
+ARG MOD_DIRECTORY="/home/arma3server/Steam/steamapps/workshop/content/107410"
 
 # copy scripts
 COPY --chown=${USERNAME}:${USERNAME} scripts/* ${SCRIPT}/
@@ -71,6 +71,7 @@ RUN find ${HTML_DIR}/raw -iname "*.html" -exec mv {} ${HTML_DIR} \;
 RUN find ${HTML_DIR}/ . -type d -empty -delete
 
 RUN mkdir -p ${MOD_DIRECTORY} \
-    && chown -R ${USERNAME}:${USERNAME} "${MOD_DIRECTORY}"
+    && chown -R ${USERNAME}:${USERNAME} "${MOD_DIRECTORY}" \
+    && ln -s ${MOD_DIRECTORY} "/home/arma3server/mods"
 
 ENTRYPOINT ["bash","/etc/arma3/scripts/entrypoint.sh"]
