@@ -1,0 +1,20 @@
+# Git Submodules Commands
+
+```Bash
+    git clone --recurse-submodules
+    git submodule init
+    git submodule update
+    
+    git submodule update --init
+    git submodule update --init --recursive
+```
+
+## Update Remote
+```Bash
+    git submodule update --remote
+```
+## 
+## Best
+```Bash
+    git pull --recurse-submodules
+```
