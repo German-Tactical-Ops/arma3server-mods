@@ -17,16 +17,15 @@ find ${HTML_DIR} -iname "*.html" -exec ${SCRIPTS}/create_sublist.sh {} "${MOD_LI
 echo ""
 echo ""
 echo "1"
-echo ""
 ls /home -al
+echo ""
 echo "2"
-echo ""
 ls /home/steam -al
+echo ""
 echo "3"
-echo ""
 ls /home/steam/steamcmd/ -al
-echo "4"
 echo ""
+echo "4"
 ls /home/steam/steamcmd/steamcmd.sh -al
 echo ""
 echo ""

@@ -13,7 +13,7 @@ services:
     volumes:
     - /home/arma3server/mods:/home/arma3server/mods
     #- /mnt/d/tmp/mods:/home/arma3server/mods
-    restart: unless-stopped
+    restart: no
     secrets:
       - steam_user_password
       - steam_user

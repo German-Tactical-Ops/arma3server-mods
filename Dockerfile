@@ -48,6 +48,8 @@ ARG GID=1001
 RUN groupadd -g ${GID} ${USERNAME} || true \
     && useradd -m -u ${UID} -g ${GID} -s /bin/bash ${USERNAME}
 
+RUN chown -R ${USERNAME}:${USERNAME} "/home/steam"
+
 # create /etc/arma3 dir
 RUN mkdir -p "/etc/arma3" \
     && chown -R ${USERNAME}:${USERNAME} "/etc/arma3"
