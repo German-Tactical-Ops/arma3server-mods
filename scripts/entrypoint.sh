@@ -13,23 +13,6 @@ export STEAMPASS="$(cat /run/secrets/steam_password)"
 
 find ${HTML_DIR} -iname "*.html" -exec ${SCRIPTS}/create_sublist.sh {} "${MOD_LIST}" \;
 
-# debug
-echo ""
-echo ""
-echo "1"
-ls /home -al
-echo ""
-echo "2"
-ls /home/steam -al
-echo ""
-echo "3"
-ls /home/steam/steamcmd/ -al
-echo ""
-echo "4"
-ls /home/steam/steamcmd/steamcmd.sh -al
-echo ""
-echo ""
-
 # download mods
 bash ${SCRIPTS}/download_mods.sh "/home/steam/steamcmd/steamcmd.sh" "${MOD_LIST}" "${STEAMUSER}" "${STEAMPASS}"
 sleep 10
