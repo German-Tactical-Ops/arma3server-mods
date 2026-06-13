@@ -16,9 +16,11 @@ echo "" > ${MOD_LIST}
 # create subscription list
 find ${HTML_DIR} -iname "*.html" -exec ${SCRIPTS}/create_sublist.sh {} "${MOD_LIST}" \;
 
+# delete mods that are not on the subscription list
+echo ""
+echo "=== Removing not used mods ==="
+rm -rf "$(ls -1 ${MOD_DIRECTORY} | grep -v ${MOD_LIST})"
+
 # download mods
 bash ${SCRIPTS}/download_mods.sh "/home/steam/steamcmd/steamcmd.sh" "${MOD_LIST}" "${STEAMUSER}" "${STEAMPASS}"
 bash ${SCRIPTS}/fix_mods_lowercase.sh ${MOD_DIRECTORY}
-
-# delete mods that are not on the subscription list
-rm -rf "$(ls -1 ${MOD_DIRECTORY} | grep -v ${MOD_LIST})"

@@ -18,7 +18,7 @@ for mod in "${mods[@]}"; do
 done
 cmd+=( +quit )
 
-echo "Starte Download von ${#mods[@]} Mod(s) in einem Rutsch..."
+echo "Starte Download von ${#mods[@]} Mod(s) in einem Rutsch."
 "${cmd[@]}"
 
 echo "Download complete!"

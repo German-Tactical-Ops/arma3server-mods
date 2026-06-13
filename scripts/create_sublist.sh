@@ -3,6 +3,9 @@
 html_path=$1
 list_path=$2
 
+echo ""
+echo "=== Creating Sublist ==="
+
 array=$(grep "http" "$html_path" | grep "id" | cut -f2 -d'?' | cut -f1 -d'"' | sed -e "s/id=//")
 
 echo "${array}" >> "$list_path"
