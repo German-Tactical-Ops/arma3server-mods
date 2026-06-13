@@ -19,7 +19,14 @@ find ${HTML_DIR} -iname "*.html" -exec ${SCRIPTS}/create_sublist.sh {} "${MOD_LI
 # delete mods that are not on the subscription list
 echo ""
 echo "=== Removing not used mods ==="
-rm -rf "$(ls -1 ${MOD_DIRECTORY} | grep -v ${MOD_LIST})"
+cd "${MOD_DIRECTORY}"
+for mod in *; do
+    if [ -d "${mod}" ] && ! grep -qx "${mod}" "${MOD_LIST}"; then
+        echo "Removing mod ${mod}..."
+        rm -rf "${mod}"
+    fi
+done
+cd - > /dev/null
 
 # download mods
 bash ${SCRIPTS}/download_mods.sh "/home/steam/steamcmd/steamcmd.sh" "${MOD_LIST}" "${STEAMUSER}" "${STEAMPASS}"
