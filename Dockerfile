@@ -68,7 +68,7 @@ RUN chmod +x ${SCRIPT}/*
 # copy html
 RUN mkdir -p ${HTML_DIR}/raw \
     && chown -R ${USERNAME}:${USERNAME} "${HTML_DIR}/raw"
-COPY --chown=${USERNAME}:${USERNAME} ./arma3server-html/* ${HTML_DIR}/raw
+COPY --chown=${USERNAME}:${USERNAME} html/* ${HTML_DIR}/raw
 RUN find ${HTML_DIR}/raw -iname "*.html" -exec mv {} ${HTML_DIR} \;
 RUN find ${HTML_DIR}/ . -type d -empty -delete
 
